@@ -12,6 +12,7 @@ public class Window
     private int targetImage;
     private int wallImage;
     private SokobanGUI w;
+	private Randomize r;
 
     public Window(int height, int width, Structure st)
     {
@@ -26,74 +27,62 @@ public class Window
 			this.emptyImage = w.loadImage("./tiles/empty.png");
 			this.targetImage = w.loadImage("./tiles/target.png");
 			this.wallImage = w.loadImage("./tiles/wall.png");
-			
-			for(int i = 0; i < width; i++)
-			{
-				for(int j = 0; j < height; j++)
-				{
-					if(i == 0 || j == 0 || i == width - 1 || j == height - 1)
-					{
-						w.setCell(i, j, wallImage);
-						st.addWall(i, j);
-					}
-					else
-						w.setCell(i, j, emptyImage);
-				}
-			}
+			this.r = new Randomize();
 		}
         catch (Exception e)
         {
 			System.out.println(e);
             System.exit(1);
 		}
-		
     }
 	
 	public void startWindow(Structure st, Player player)
 	{
+		r.createLevel(st, this);
+		
 		while(true)
-            {
-				try
-				{
-					int result = w.getEvent();
+        {
+			try
+			{
+				int result = w.getEvent();
 					
-					if(result != SokobanGUI.QUIT)
-					{
-						switch(result)
-						{
-							case SokobanGUI.UP:
-							{
-								player.move(st, this, 1);
-								break;
-							}
-							case SokobanGUI.RIGHT:
-							{
-								player.move(st, this, 2);
-								break;
-							}
-							case SokobanGUI.DOWN:
-							{
-								player.move(st, this, 3);
-								break;
-							}	
-							case SokobanGUI.LEFT:
-							{
-								player.move(st, this, 4);
-								break;
-							}
-						}   
-					}	
-					else if(result == SokobanGUI.QUIT)
-					{
-						System.exit(0);
-					}
-				}
-				catch(Exception e)
+				if(result != SokobanGUI.QUIT)
 				{
-					System.out.println(e);
-					System.exit(1);
+					switch(result)
+					{
+						case SokobanGUI.UP:
+						{
+							player.move(st, this, 1);
+							break;
+						}
+						case SokobanGUI.RIGHT:
+						{
+							player.move(st, this, 2);
+							break;
+						}
+						case SokobanGUI.DOWN:
+						{
+							player.move(st, this, 3);
+							break;
+						}	
+						case SokobanGUI.LEFT:
+						{
+							player.move(st, this, 4);
+							break;
+						}
+					}   
+				}	
+				else if(result == SokobanGUI.QUIT)
+				{
+					System.exit(0);
 				}
-            }
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+				System.exit(1);
+			}
+        }
 	}
 	
 	public SokobanGUI getDisplay()
@@ -131,4 +120,14 @@ public class Window
         return wallImage;
     }
 
+	public int getHeight()
+	{
+		return height;
+	}
+	
+	public int getWidth()
+	{
+		return width;
+	}
+	
 }

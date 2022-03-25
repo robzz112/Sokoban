@@ -1,5 +1,4 @@
 package be.uliege.boigelot.oop.sokoban.main;
-
 import java.util.*;
 
 public class Structure
