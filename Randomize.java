@@ -4,13 +4,19 @@ import be.uliege.boigelot.oop.sokoban.gui.*;
 public class Randomize
 {
 	private int nbBoxes;
+	private Structure st;
+	private Window w;
+	private Player player;
 	
-	public Randomize()
+	public Randomize(int nbBoxes, Structure st, Window w, Player player)
 	{
-		this.nbBoxes = 0;
+		this.nbBoxes = nbBoxes;
+		this.st = st;
+		this.w = w;
+		this.player = player;
 	}
 	
-	public void createLevel(Structure st, Window w)
+	public void createLevel()
 	{
 		try
 		{
@@ -41,7 +47,7 @@ public class Randomize
             w.getDisplay().setCell(2, 2, w.getTargetImage());
             st.addTarget(2, 2);
 
-            w.getDisplay().setCell(5, 5, w.getPlayerImage());
+            w.getDisplay().setCell(player.getX(), player.getY(), w.getPlayerImage());
             w.getDisplay().show();
 		}
 		catch(SokobanError e)

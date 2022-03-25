@@ -26,10 +26,12 @@ public class Box
     {
         x += dx;
     }
+	
     public void changeY(int dy)
     {
         y += dy;
     }
+	
     public String generateStringPos()
     {
         return x + "," + y;

@@ -7,13 +7,15 @@ public class Player
     private int y;
     private int width;
     private int height;
+	private Structure s;
     
-    public Player(int x, int y, int width, int height)
+    public Player(int x, int y, int width, int height, Structure s)
     {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+		this.s = s;
     }
 
     public int getX()
@@ -26,7 +28,7 @@ public class Player
         return y;
     }
 
-    public boolean moveUp(Structure s, Window w)
+    public boolean moveUp(Window w)
     {
         if(this.y == 0)
             return false;
@@ -54,7 +56,7 @@ public class Player
         return true;
     }
 
-    public boolean moveDown(Structure s, Window w)
+    public boolean moveDown(Window w)
     {
         if(this.y == this.height - 1)
             return false;
@@ -84,7 +86,7 @@ public class Player
         
     }
 
-    public boolean moveLeft(Structure s, Window w)
+    public boolean moveLeft(Window w)
     {
         if(this.x == 0)
             return false;
@@ -112,7 +114,7 @@ public class Player
         return true;
     }
 
-    public boolean moveRight(Structure s, Window w)
+    public boolean moveRight(Window w)
     {
         if(this.x == this.width - 1)
             return false;
@@ -141,7 +143,7 @@ public class Player
         return true;
     }
 
-    public void moveAfterCheck(Structure s, Window w, int prevX, int prevY)
+    public void moveAfterCheck(Window w, int prevX, int prevY)
     {
         String stringPos = prevX + "," + prevY;
 
@@ -166,7 +168,7 @@ public class Player
         }            
     }
 
-    public void move(Structure s, Window w, int directionNumber)
+    public void move(Window w, int directionNumber)
     {
         int prevX = this.getX();
         int prevY = this.getY();
@@ -175,34 +177,34 @@ public class Player
         {
             case 1:
 			{
-				boolean makeMove = this.moveUp(s, w);
+				boolean makeMove = this.moveUp(w);
                     
 				if(makeMove != false)
-					this.moveAfterCheck(s, w, prevX, prevY);
+					this.moveAfterCheck(w, prevX, prevY);
 				break;
 			}
             case 2:
 			{
-				boolean makeMove = this.moveRight(s, w);
+				boolean makeMove = this.moveRight(w);
                     
 				if(makeMove != false)
-					this.moveAfterCheck(s, w, prevX, prevY);
+					this.moveAfterCheck(w, prevX, prevY);
 				break;
 			}
 			case 3:
 			{
-				boolean makeMove = this.moveDown(s, w);
+				boolean makeMove = this.moveDown(w);
                     
 				if(makeMove != false)
-					this.moveAfterCheck(s, w, prevX, prevY);
+					this.moveAfterCheck(w, prevX, prevY);
 				break;
 			}	
 			case 4:
 			{
-				boolean makeMove = this.moveLeft(s, w);
+				boolean makeMove = this.moveLeft(w);
                     
 				if(makeMove != false)
-					this.moveAfterCheck(s, w, prevX, prevY);
+					this.moveAfterCheck(w, prevX, prevY);
 				break;
 			}
         }   

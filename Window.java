@@ -14,7 +14,7 @@ public class Window
     private SokobanGUI w;
 	private Randomize r;
 
-    public Window(int height, int width, Structure st)
+    public Window(int height, int width, Structure st, Player player)
     {
         try
         {
@@ -27,7 +27,7 @@ public class Window
 			this.emptyImage = w.loadImage("./tiles/empty.png");
 			this.targetImage = w.loadImage("./tiles/target.png");
 			this.wallImage = w.loadImage("./tiles/wall.png");
-			this.r = new Randomize();
+			this.r = new Randomize(2, st, this, player);
 		}
         catch (Exception e)
         {
@@ -38,7 +38,7 @@ public class Window
 	
 	public void startWindow(Structure st, Player player)
 	{
-		r.createLevel(st, this);
+		r.createLevel();
 		
 		while(true)
         {
@@ -52,22 +52,22 @@ public class Window
 					{
 						case SokobanGUI.UP:
 						{
-							player.move(st, this, 1);
+							player.move(this, 1);
 							break;
 						}
 						case SokobanGUI.RIGHT:
 						{
-							player.move(st, this, 2);
+							player.move(this, 2);
 							break;
 						}
 						case SokobanGUI.DOWN:
 						{
-							player.move(st, this, 3);
+							player.move(this, 3);
 							break;
 						}	
 						case SokobanGUI.LEFT:
 						{
-							player.move(st, this, 4);
+							player.move(this, 4);
 							break;
 						}
 					}   
