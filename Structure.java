@@ -52,11 +52,13 @@ public class Structure
 	public void increaseCounter()
     {
         this.boxesOnTargets++;
+        System.out.println("Number of boxes on target = " + boxesOnTargets);
     }
 
     public void decreaseCounter()
     {
         this.boxesOnTargets--;
+        System.out.println("Number of boxes on target = " + boxesOnTargets);
     }
 	
     public Box getBox(String pos)

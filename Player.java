@@ -45,7 +45,7 @@ public class Player
             {
                 if(s.targetCheck(st) == true)
                     s.decreaseCounter();
-
+    
                 this.y--;
             }
             return true;

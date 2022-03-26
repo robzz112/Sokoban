@@ -56,6 +56,7 @@ public class Box
             if(s.targetCheck(this.generateStringPos()) == true)
             {
                 w.getDisplay().setCell(this.x, this.y, w.getCrate2Image());
+                s.increaseCounter();
             }
             else
                 w.getDisplay().setCell(this.x, this.y, w.getCrateImage());

@@ -1,5 +1,4 @@
 package be.uliege.boigelot.oop.sokoban.main;
-import be.uliege.boigelot.oop.sokoban.gui.*;
 
 public class Sokoban
 {
