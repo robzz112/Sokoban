@@ -6,6 +6,7 @@ public class Structure
     private Map<String, Boolean> wallsMap;
     private Map<String, Boolean> targetsMap;
     private Map<String, Box> boxesMap;
+	private int boxesOnTargets = 0;
 
     public Structure()
     {
@@ -48,6 +49,16 @@ public class Structure
         return boxesMap.containsKey(pos);
     }
 
+	public void increaseCounter()
+    {
+        this.boxesOnTargets++;
+    }
+
+    public void decreaseCounter()
+    {
+        this.boxesOnTargets--;
+    }
+	
     public Box getBox(String pos)
     {
         return boxesMap.get(pos);

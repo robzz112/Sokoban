@@ -42,7 +42,12 @@ public class Player
             if(b.moveUp(s, w) == false)
                 return false;
             else
+            {
+                if(s.targetCheck(st) == true)
+                    s.decreaseCounter();
+
                 this.y--;
+            }
             return true;
         }
     
@@ -70,7 +75,12 @@ public class Player
             if(b.moveDown(s, w) == false)
                 return false;
             else
+            {
+                if(s.targetCheck(st) == true)
+                    s.decreaseCounter();
+
                 this.y++;
+            }
             return true;
 
         }
@@ -100,7 +110,12 @@ public class Player
             if(b.moveLeft(s, w) == false)
                 return false;
             else
+            {
+                if(s.targetCheck(st) == true)
+                    s.decreaseCounter();
+
                 this.x--;
+            }
             return true;
         }
 
@@ -128,7 +143,12 @@ public class Player
             if(b.moveRight(s, w) == false)
                 return false;
             else
+            {
+                if(s.targetCheck(st) == true)
+                    s.decreaseCounter();
+
                 this.x++;
+            }
             return true;
         }
 
