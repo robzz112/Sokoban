@@ -47,6 +47,9 @@ public class Randomize
             w.getDisplay().setCell(2, 2, w.getTargetImage());
             st.addTarget(2, 2);
 
+			w.getDisplay().setCell(2, 4, w.getTargetImage());
+            st.addTarget(2, 4);
+
             w.getDisplay().setCell(player.getX(), player.getY(), w.getPlayerImage());
             w.getDisplay().show();
 		}
