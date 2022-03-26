@@ -1,6 +1,6 @@
 package be.uliege.boigelot.oop.sokoban.main;
 import be.uliege.boigelot.oop.sokoban.gui.*;
-
+//Salut
 public class Player
 {
     private int x;
