@@ -60,6 +60,11 @@ public class Structure
         this.boxesOnTargets--;
         System.out.println("Number of boxes on target = " + boxesOnTargets);
     }
+
+    public int getBoxesOnTargets()
+    {
+        return boxesOnTargets;
+    }
 	
     public Box getBox(String pos)
     {

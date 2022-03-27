@@ -42,6 +42,10 @@ public class Window
 		
 		while(true)
         {
+
+			if(st.getBoxesOnTargets() == this.r.getNbBoxes())
+				System.exit(0);
+
 			try
 			{
 				int result = w.getEvent();
