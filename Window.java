@@ -14,7 +14,7 @@ public class Window
     private SokobanGUI w;
 	private Randomize r;
 
-    public Window(int height, int width, Structure st, Player player)
+    public Window(int height, int width, Structure st, Player player, int nbBoxes)
     {
         try
         {
@@ -27,7 +27,7 @@ public class Window
 			this.emptyImage = w.loadImage("./tiles/empty.png");
 			this.targetImage = w.loadImage("./tiles/target.png");
 			this.wallImage = w.loadImage("./tiles/wall.png");
-			this.r = new Randomize(2, st, this, player);
+			this.r = new Randomize(nbBoxes, st, this, player);
 		}
         catch (Exception e)
         {
